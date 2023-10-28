@@ -1,0 +1,28 @@
+#gameContainer{
+  text-align: center;
+
+}
+canvas{
+  border: solid 3px;
+}
+#score{
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 100px;
+}
+#resetBtn{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 22px;
+  width: 100px;
+  height: 50px;
+  border: 3px solid;
+  border-radius: 15px;
+  cursor: pointer;
+}
+footer{
+  text-align: center;
+}
+header{
+  text-align: center;
+  font-size: 70px;
+  color: gold;
+}
