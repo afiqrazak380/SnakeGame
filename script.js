@@ -27,23 +27,44 @@ window.addEventListener("keydown", changeDirection);
 resetBtn.addEventListener("click", resetGame);
 
 gameStart();
-foodCoordinate();
-drawFood();
 
-function gameStart(){};
-function nextTick(){};
-function clearBoard(){}; // repainting the board
-function foodCoordinate(){
+function gameStart(){ // initialize the game
+  running = true;
+  scoreText.textContent = score;
+  foodCoordinate();
+  drawFood();
+  nextTick();
+};
+function nextTick(){
+  if(running){ //setTimeout(function, delay, arg1, arg2, ...);
+    setTimeout(() => {
+      clearBoard();
+      drawFood();
+      moveSnake();
+      drawSnake();
+      checkGameOver();
+      nextTick();
+    }, 75); // execute those function after 75 ms of delay
+  }
+  else{
+    displayGameOver();
+  }
+};
+function clearBoard(){ // repainting the board
+  context.fillStyle = boardBackground; // fill the context with boardBackground colour
+  context.fillRect(0, 0, gameWidth, gameHeight); // fill the context from top-left to bottom-right
+}; 
+function foodCoordinate(){ // find a random coordinate to create a food item
   function randFood(min, max){
     const randNum = Math.round((Math.random() * (max - min))*unitSize / unitSize); 
     return randNum
   }
-  foodX = randFood(0, gameBoard.width - unitSize);
-  foodY = randFood(0, gameBoard.width - unitSize);
+  foodX = randFood(0, gameBoard.width - unitSize); // random X coordinate
+  foodY = randFood(0, gameBoard.width - unitSize); // random Y coordinate
 }; 
 function drawFood(){
-  context.fillStyle = foodColor;
-  context.fillRect(foodX, foodY, unitSize, unitSize);
+  context.fillStyle = foodColor; // set the colour of the food
+  context.fillRect(foodX, foodY, unitSize, unitSize); // draw food item //.fillRect(X, Y, width, height)
 };
 function moveSnake(){};
 function drawSnake(){};
