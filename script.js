@@ -27,14 +27,24 @@ window.addEventListener("keydown", changeDirection);
 resetBtn.addEventListener("click", resetGame);
 
 gameStart();
-createFood();
+foodCoordinate();
 drawFood();
 
 function gameStart(){};
 function nextTick(){};
 function clearBoard(){}; // repainting the board
-function createFood(){}; 
-function drawFood(){};
+function foodCoordinate(){
+  function randFood(min, max){
+    const randNum = Math.round((Math.random() * (max - min))*unitSize / unitSize); 
+    return randNum
+  }
+  foodX = randFood(0, gameBoard.width - unitSize);
+  foodY = randFood(0, gameBoard.width - unitSize);
+}; 
+function drawFood(){
+  context.fillStyle = foodColor;
+  context.fillRect(foodX, foodY, unitSize, unitSize);
+};
 function moveSnake(){};
 function drawSnake(){};
 function changeDirection(){};
