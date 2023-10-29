@@ -5,7 +5,7 @@
 canvas{
   border: solid 3px;
 }
-#score{
+#scoreText{
   font-family: 'Times New Roman', Times, serif;
   font-size: 100px;
 }
