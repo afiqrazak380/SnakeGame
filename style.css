@@ -6,7 +6,7 @@ canvas{
   border: solid 3px;
 }
 #scoreText{
-  font-family: 'Times New Roman', Times, serif;
+  font-family: 'Monospace', Times, serif;
   font-size: 100px;
 }
 #resetBtn{
